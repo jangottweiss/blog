@@ -5,21 +5,13 @@ import { ThemeProvider } from 'styled-components'
 import theme from '../../config/theme'
 import styled from 'styled-components'
 
-const Wrapper = styled.div`
-  margin: 0 auto;
+const Wrapper = styled.div`  
   width: 100%;
-  // padding: 0px 1.0875rem 1.45rem;
-  paddingTop: 0;
   background: theme.colors.main.light;
 `
 
 const BlogWrapper = styled.div`
-  padding-left: 3rem;
-  padding-right: 3rem;
-  @media screen and (max-width: 1000px) {
-    padding-left: 1rem;
-    padding-right: 1rem;
-}
+
 `
 
 const layout = ({ children }) => (

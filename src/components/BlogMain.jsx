@@ -8,12 +8,7 @@ import styled from 'styled-components'
 import Layout from "../components/layout"
 
 const BlogMainWrapper = styled.div`
-  height: 100%;
-  background: ${theme.colors.main.light};
-  display: table;
-  margin-top: 5rem;
-  @media screen and (max-width: 1000px) {
-  }
+
 `
 
 class BlogMain extends React.Component {
@@ -21,7 +16,6 @@ class BlogMain extends React.Component {
         const { site, posts } = this.props
         console.log(posts)
         return (
-            // <div>TEST</div>
             <Layout title={site.title}>
                 <Helmet title={site.title} />
                 <SEO title="All posts" />
