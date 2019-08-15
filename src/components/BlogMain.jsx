@@ -2,7 +2,7 @@ import React from "react"
 // import SideContent from "../components/sideContent"
 import SEO from "../components/seo"
 import theme from '../../config/theme'
-import Blog from '../components/blog'
+import Blog from '../components/Blog'
 import Helmet from 'react-helmet'
 import styled from 'styled-components'
 import Layout from "../components/layout"
