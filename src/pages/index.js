@@ -1,48 +1,49 @@
 import React from "react"
-import { Link, graphql } from "gatsby"
+import { graphql } from "gatsby"
 
-import Bio from "../components/bio"
-import Layout from "../components/layout"
-import SEO from "../components/seo"
-import { rhythm } from "../utils/typography"
+import BlogMain from '../components/BlogMain';
 
 class BlogIndex extends React.Component {
   render() {
-    const { data } = this.props
-    const siteTitle = data.site.siteMetadata.title
-    const posts = data.allMarkdownRemark.edges
+    const { data } = this.props;
+    const site = data.site;
+    const posts = data.allMarkdownRemark.edges;
 
     return (
-      <Layout location={this.props.location} title={siteTitle}>
-        <SEO title="All posts" />
-        <Bio />
-        {posts.map(({ node }) => {
-          const title = node.frontmatter.title || node.fields.slug
-          return (
-            <article key={node.fields.slug}>
-              <header>
-                <h3
-                  style={{
-                    marginBottom: rhythm(1 / 4),
-                  }}
-                >
-                  <Link style={{ boxShadow: `none` }} to={node.fields.slug}>
-                    {title}
-                  </Link>
-                </h3>
-                <small>{node.frontmatter.date}</small>
-              </header>
-              <section>
-                <p
-                  dangerouslySetInnerHTML={{
-                    __html: node.frontmatter.description || node.excerpt,
-                  }}
-                />
-              </section>
-            </article>
-          )
-        })}
-      </Layout>
+      <BlogMain
+        site={site}
+        posts={posts}
+      ></BlogMain>
+      // <Layout location={this.props.location} title={siteTitle}>
+      //   <SEO title="All posts" />
+      //   <Bio />
+      //   {posts.map(({ node }) => {
+      //     const title = node.frontmatter.title || node.fields.slug
+      //     return (
+      //       <article key={node.fields.slug}>
+      //         <header>
+      //           <h3
+      //             style={{
+      //               marginBottom: rhythm(1 / 4),
+      //             }}
+      //           >
+      //             <Link style={{ boxShadow: `none` }} to={node.fields.slug}>
+      //               {title}
+      //             </Link>
+      //           </h3>
+      //           <small>{node.frontmatter.date}</small>
+      //         </header>
+      //         <section>
+      //           <p
+      //             dangerouslySetInnerHTML={{
+      //               __html: node.frontmatter.description || node.excerpt,
+      //             }}
+      //           />
+      //         </section>
+      //       </article>
+      //     )
+      //   })}
+      // </Layout>
     )
   }
 }
@@ -66,8 +67,23 @@ export const pageQuery = graphql`
           frontmatter {
             date(formatString: "MMMM DD, YYYY")
             title
-            description
-          }
+            description            
+            categories
+            tags
+            slug
+            image {
+              childImageSharp {
+                fluid(
+                  maxWidth: 450,
+                  maxHeight: 300) {
+                  ...GatsbyImageSharpFluid
+                }
+                fixed(width: 700, height: 300) {
+                  ...GatsbyImageSharpFixed
+                }
+              }
+            }            
+          }         
         }
       }
     }
