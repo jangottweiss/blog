@@ -8,7 +8,6 @@ display_url: https://gottweiss.netlify.com
 show_preview_links: true
 
 media_folder: "content/assets"
-public_folder: assets
 
 publish_mode: editorial_workflow
 
