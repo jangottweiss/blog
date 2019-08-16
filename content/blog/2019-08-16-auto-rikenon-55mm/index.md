@@ -8,7 +8,7 @@ draft: false
 meta_title: "Post 3"
 description: "First Impressions of the Auto Rikenon 55mm f1.4 Vintage Lens"
 image: sample-footage-13.jpg
-show_image: false
+show_image: true
 tags: []
 categories: ["Equipment", "Vintage Lenses"]
 ---
