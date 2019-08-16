@@ -6,6 +6,9 @@ import Sidebar from '../components/Sidebar'
 import { ThemeProvider } from 'styled-components'
 import theme from '../../config/theme'
 import styled from 'styled-components'
+import { MDXProvider } from '@mdx-js/react';
+
+import { MDXLayoutComponents, MDXGlobalComponents } from './mdx';
 
 const SiteWrapper = styled.div`  
   width: 100%;
@@ -60,7 +63,14 @@ const layout = ({ children }) => (
 
           <MainContainer>
             <BlogWrapper>
-              <main>{children}</main>
+              <MDXProvider
+                components={{
+                  ...MDXLayoutComponents,
+                  ...MDXGlobalComponents,
+                }}
+              >
+                <main>{children}</main>
+              </MDXProvider>
             </BlogWrapper>
             <SidebarContainer>
               <Sidebar></Sidebar>
@@ -78,7 +88,7 @@ const layout = ({ children }) => (
 
 const siteTitleQuery = graphql`
   query SiteTitleQuery {
-    cats: allMarkdownRemark(
+    cats: allMdx(
       limit: 2000) {
       group(field: frontmatter___categories) {
         fieldValue
