@@ -8,8 +8,9 @@ draft: false
 meta_title: "Post 1"
 description: "This is the First Post"
 image: cover.jpg
+show_image: false
 tags: ["Test Tag"]
 categories: ["Test Category", "Test Category 2"]
 ---
 
-## Test Post 2
+

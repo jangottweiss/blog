@@ -1,16 +1,49 @@
 import React from "react"
 import { StaticQuery, graphql } from "gatsby"
 import Header from '../components/Header'
+import Footer from '../components/Footer'
+import Sidebar from '../components/Sidebar'
 import { ThemeProvider } from 'styled-components'
 import theme from '../../config/theme'
 import styled from 'styled-components'
 
-const Wrapper = styled.div`  
+const SiteWrapper = styled.div`  
   width: 100%;
-  background: theme.colors.main.light;
+  background: theme.colors.main.light;  
+  margin: 0;
+  min-height: 100vh;
+
 `
 
-const BlogWrapper = styled.div`
+const HeaderContainer = styled.header`
+  
+`
+
+const MainContainer = styled.div`
+  width: 75%;
+  max-width: 1080px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 1fr 200px;
+  grid-gap: 2rem;  
+
+  @media screen and (max-width: ${theme.breakpoints.m}) {
+    width: 90%;
+    margin: auto;    
+    display: flex;
+    flex-direction: column;
+
+  }
+`
+const SidebarContainer = styled.aside`
+
+`
+
+const BlogWrapper = styled.main`
+
+`
+
+const FooterWrapper = styled.footer`
 
 `
 
@@ -20,16 +53,24 @@ const layout = ({ children }) => (
     render={data => (
       <ThemeProvider theme={theme}>
         {/* <SEO/> */}
-        <Wrapper>
-          {/* <Header siteTitle={data.site.siteMetadata.title} menuLinks={data.site.siteMetadata.menuLinks} /> */}
-          <Header siteTitle={data.site.siteMetadata.title} />
-          <BlogWrapper>
-            <main>{children}</main>
-          </BlogWrapper>
-          
-          {/* <Footer>
-        </Footer> */}
-        </Wrapper>
+        <SiteWrapper>
+          <HeaderContainer>
+            <Header siteTitle={data.site.siteMetadata.title} />
+          </HeaderContainer>
+
+          <MainContainer>
+            <BlogWrapper>
+              <main>{children}</main>
+            </BlogWrapper>
+            <SidebarContainer>
+              <Sidebar></Sidebar>
+            </SidebarContainer>
+          </MainContainer>
+
+          {/* <FooterWrapper>
+            <Footer></Footer>
+          </FooterWrapper> */}
+        </SiteWrapper>
       </ThemeProvider>
     )}
   />

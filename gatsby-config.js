@@ -9,7 +9,20 @@ module.exports = {
     },
   },
   plugins: [
-    `gatsby-plugin-netlify-cms`,  
+    `gatsby-plugin-netlify-cms`,
+    {
+      resolve: `gatsby-plugin-mdx`,
+      options: {
+        extensions: [`.mdx`, `.md`],
+      }
+    },
+    {
+      resolve: `gatsby-plugin-typography`,
+      options: {
+        pathToConfigModule: `config/typography`,
+      }
+    },
+
     {
       resolve: `gatsby-plugin-styled-components`,
       options: {

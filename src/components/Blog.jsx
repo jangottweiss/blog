@@ -7,13 +7,13 @@ import theme from '../../config/theme';
 
 
 const BlogSection = styled.section`
-    padding: ${theme.blog.containerPadding};    
+    padding-top: ${theme.blog.containerPadding};    
 `
 
 const BlogContainer = styled.ul`
     list-style-type: none;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     grid-gap: ${theme.blog.gridGap};
     margin-left: 0px;
 `

@@ -27,9 +27,7 @@ const Categories = styled.div`
 
 const Title = styled.div`
     h2 {
-        color: ${theme.palette.textDark};
-        fontSize: '2vw';
-        font-family: 'Open Sans';
+        color: ${theme.palette.textDark};                
     }
 `
 
@@ -49,7 +47,7 @@ const BlogItem = ({ path, cover, category, title, date, excerpt }) => (
         </Categories>
         <Title>
             <Link to={path} >
-                <h2 style={{ marginTop: '0rem' }}>{title}</h2>
+                <h2 style={{ marginTop: '0rem', fontSize: '2.5vw' }}>{title}</h2>
             </Link>
         </Title>
         <Date>

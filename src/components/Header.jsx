@@ -18,7 +18,7 @@ const Wrapper = styled(HeadRoom)`
 
 `
 const Container = styled.div`
-    display: flex;
+    display: grid;
     grid-template-columns: repeat(3, 1fr);
     justify-content: space-between;
     @media screen and (max-width: 1000px) {
