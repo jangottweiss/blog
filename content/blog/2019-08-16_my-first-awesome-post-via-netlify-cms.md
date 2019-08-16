@@ -13,6 +13,4 @@ image: /assets/screenshot-2019-08-12-at-08.44.26.png
 ---
 This is my body.
 
-![](/assets/cover.jpg)
-
 ![](/assets/folder.png)
