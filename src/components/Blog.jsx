@@ -1,17 +1,20 @@
 import React from "react"
-import BlogItem from '../components/BlogItem'
+
 import styled from 'styled-components'
+
+import BlogItem from '../components/BlogItem'
+import theme from '../../config/theme';
 
 
 const BlogSection = styled.section`
-    padding: 1.5rem;    
+    padding: ${theme.blog.containerPadding};    
 `
 
 const BlogContainer = styled.ul`
     list-style-type: none;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    grid-gap: 1rem;
+    grid-gap: ${theme.blog.gridGap};
     margin-left: 0px;
 `
 

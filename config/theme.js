@@ -1,6 +1,22 @@
-import { rgba } from 'polished'
+import { rgba, darken, lighten } from 'polished'
 
-const colors = {
+const main = {
+  primary: '#F2AC57',
+  secondary: '#8596A6',
+  text: '#464646',  
+  secondayAccent: '#D96B2B',
+  primaryAccent: '#F2E2C4'
+}
+
+const palette = {
+  ...main,
+  textLight: lighten(0.2, main.text),
+  textLighter: lighten(0.4, main.text),
+  textDark: darken(0.2, main.text),
+  textDarker: darken(0.4, main.text),
+}
+
+const colors = {  
   white: {
     base: '#fff',
     light: '#f0f0f0',
@@ -119,6 +135,7 @@ const transition = {
 }
 
 const theme = {
+  palette,
   colors,
   tint,
   gradient,
@@ -154,6 +171,11 @@ const theme = {
       transition: 'all 0.25s ease-in-out',
     },
   },
+
+  blog: {
+    containerPadding: '1.5rem',
+    gridGap: '1.2rem',
+  }
 }
 
 export default theme

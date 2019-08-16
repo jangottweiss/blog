@@ -4,28 +4,41 @@ import { Link } from 'gatsby'
 import Img from 'gatsby-image'
 import theme from '../../config/theme'
 
-const Wrapper = styled.article`
-
-`
-
-const Categories = styled.div`
-   
+const Card = styled.article`
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: flex-start;
+    width: 100%;
+    text-align: center;
 `
 
 const Image = styled.div`
+    width: 100%;
+`
 
+const Categories = styled.div`
+    padding-top: 0.5rem;
+    padding-bottom: 0.45rem;
+    text-transform: uppercase;
+    color: ${theme.palette.primary};
 `
 
 const Title = styled.div`
-
+    h2 {
+        color: ${theme.palette.textDark};
+        fontSize: '2vw';
+        font-family: 'Open Sans';
+    }
 `
 
 const Date = styled.div`
-
+    color: ${theme.palette.textLight};
 `
 
 const BlogItem = ({ path, cover, category, title, date, excerpt }) => (
-    <Wrapper>
+    <Card>
         <Image>
             <Link to={path} title={title}>
                 <Img fluid={cover} />
@@ -36,13 +49,13 @@ const BlogItem = ({ path, cover, category, title, date, excerpt }) => (
         </Categories>
         <Title>
             <Link to={path} >
-                <h2 style={{ marginTop: '1rem', fontSize: '1 vw' }}>{title}</h2>
+                <h2 style={{ marginTop: '0rem' }}>{title}</h2>
             </Link>
         </Title>
         <Date>
             {date}
         </Date>
-    </Wrapper>
+    </Card>
 )
 
 export default BlogItem
