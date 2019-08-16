@@ -2,16 +2,33 @@ backend:
   name: github
   repo: jangottweiss/blog
 
-media_folder: static/assets
+site_url: https://gottweiss.netlify.com
+display_url: https://gottweiss.netlify.com
+
+show_preview_links: true
+
+media_folder: "content/assets/blog"
 public_folder: assets
+
+publish_mode: editorial_workflow
 
 collections:
   - name: blog
     label: Blog
     folder: "content/blog"
     create: true
+    slug: "{{year}}-{{month}}-{{day}}_{{slug}}"
     fields:
-      - { name: path, label: Path }
-      - { name: date, label: Date, widget: date }
       - { name: title, label: Title }
+      - { name: slug, label: Slug }
+      - { name: author, label: Author }
+      - { name: description, label: Description }
+      - { name: tags, label: Tags, widget: list }
+      - { name: categories, label: Categories, widget: list }
+
+      # - { name: path, label: Path }
+      - { name: date, label: Date, widget: date }
+      
+      
       - { name: body, label: Body, widget: markdown }
+      - { name: image, label: Image,  widget: image }
